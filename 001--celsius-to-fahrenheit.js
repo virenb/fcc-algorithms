@@ -8,13 +8,34 @@ the given Celsius temperature. Use the algorithm mentioned above to help convert
  
  */
 
+// Thoughts
+/* 
+-Objective: Return a Fahrenheit temperature
+-You are given the formula (F = C * 9/5 + 32)
+-Your input is celsius argument
+-fahrenheit variable is given in starter code
+-add formula to fahrenheit variable
+*/
+
+
 function convertToF(celsius) {
-  let fahrenheit;
+  let fahrenheit = (celsius * 9 / 5) + 32;
   return fahrenheit;
 }
 
-convertToF(30);
+/* Alternative Solutions
 
+// to shorten it
+function convertToF(celsius) {
+  return celsius * 9/5 + 32;
+}
+
+// to shorten via ES6
+const convertToF = celsius => celsius * 9/5 + 32;
+
+*/
+
+convertToF(30);
 
 // TESTS
 // convertToF(0) should return a number
