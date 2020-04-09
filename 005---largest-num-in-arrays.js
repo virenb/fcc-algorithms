@@ -23,6 +23,7 @@ function largestOfFour(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     arr[i].sort((a, b) => b - a);
+    newArr.push(arr[i][0]);
   };
 
   return newArr;
