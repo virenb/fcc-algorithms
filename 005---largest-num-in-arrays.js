@@ -8,16 +8,28 @@ Remember, you can iterate through an array with a simple for loop, and access ea
 
 // Thoughts
 /*
-
+We are dealing with a 2-dimensional array
+We have to access values from an array within an array
+2 for loops?
+There is definitely an array method called sort()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+If the arrays within the array are sorted, largest to smallest, we can just look for the 0 index (1st element)
+We use a for loop to call the sort() method
+Within that same for loop, once arrays are sorted, we push only 0th index into the new array
 */
 
 function largestOfFour(arr) {
-  return arr;
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].sort((a, b) => b - a);
+  };
+
+  return newArr;
+
 }
 
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
-
-
 
 // TESTS
 // largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]) should return an array.
