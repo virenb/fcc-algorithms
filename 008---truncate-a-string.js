@@ -7,10 +7,21 @@ Truncate a string (first argument) if it is longer than the given maximum string
 
 // Thoughts
 /*
+We are given two inputs again, a string and a num length to use it against string
+If we read the problem carefully, we will only alter string is num is greater
+So lets do a quick if statement to check if num is bigger than str.length
+If num is bigger, lets just return str
+Seems like we can use substring again, but there is also a property called slice()
+They are somewhat similar but here are the differences
+https://stackoverflow.com/questions/2243824/what-is-the-difference-between-string-slice-and-string-substring
+With either property, we will start with 0 index as the first argument since we want to start at the begining of each string
+The second argument, will be num, as it'lll give us the index we want to stop the string at
+then we will add the string "..." to this as that is the instruction
 */
 
 function truncateString(str, num) {
-  return str;
+  if (num >= str.length) return str;
+  return str.substring(0, num) + "...";
 }
 
 truncateString("A-tisket a-tasket A green and yellow basket", 8);
