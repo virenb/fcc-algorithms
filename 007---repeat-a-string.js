@@ -6,12 +6,25 @@ Repeat a given string str (first argument) for num times (second argument). Retu
 
 // Thoughts
 /* 
-
+We start with an if statment to check if num is negative or 0
+We will just return an empty string
+We cannot use the repeat() method
+A for loop should work as we have to repeat num times
+We can just create an empty string, loop through num times and add into the new string variable
 */
 
 
 function repeatStringNumTimes(str, num) {
-  return str;
+  let newStr = "";
+
+  if (num <= 0) {
+    return "";
+  }
+
+  for (let i = 0; i < num; i++) {
+    newStr += str;
+  }
+  return newStr;
 }
 
 repeatStringNumTimes("abc", 3);
