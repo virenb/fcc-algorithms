@@ -19,7 +19,14 @@ Note: You have to use the arguments object.
 */
 
 function destroyer(arr) {
-  return arr;
+  const argsArray = [...arguments].slice(1);
+  const uniqueArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (argsArray.indexOf(arr[i]) == -1) {
+      uniqueArray.push(arr[i]);
+    }
+  }
+  return uniqueArray;
 }
 
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);
