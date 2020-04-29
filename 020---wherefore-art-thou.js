@@ -15,14 +15,32 @@ that was passed on as the second argument.
 
 // THOUGHTS
 /*
-
+Our inputs are an array of objects and an object.
+We have to check if `source` is in the first argument, `collection`
+We have to work with arrays and object methods here
+Thought is to check if the key(s) exist in the collection array then check
+if the values match
+We can use Object.keys to make an array of the keys to check against (from second argument)
+We can use `hasOwnProperty()` to see if the key exists in the array
+Once we have a keys array, we can loop through that and make the comparsion
+We will use `filter()` on `collection` to check if it has the property and then if the value matches
+Using `filter()` we will only return the true values
+Set arr to `collection.filter(...)`
+Return arr
 */
 
 function whatIsInAName(collection, source) {
   var arr = [];
   // Only change code below this line
-
-
+  var sourceKeys = Object.keys(source);
+  arr = collection.filter(function(obj) {
+    for (var i = 0; i < sourceKeys.length; i++) {
+      if (!obj.hasOwnProperty(sourceKeys[i]) || obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
+        return false;
+      }
+    }
+    return true;
+  })
   // Only change code above this line
   return arr;
 }
