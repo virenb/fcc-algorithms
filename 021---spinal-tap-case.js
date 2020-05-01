@@ -6,11 +6,17 @@ Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-da
 
 // THOUGHTS
 /*
-
+Will have to use regex :(
+Tried standard split(' ').join('-').toLowerCase() but only works for the white spaces
+We will have to create regex for white space and underscores 
+Then we will have to deal with the uppercases
+The first regex will replace camelcase situations
+The second regex replace will take care of the white space and _
+Then we can call `.toLowerCase()` on the string
 */
 
 function spinalCase(str) {
-  return str;
+  return str.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\s+|_+/g, '-').toLowerCase();
 }
 
 spinalCase('This Is Spinal Tap');
