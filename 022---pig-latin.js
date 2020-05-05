@@ -12,9 +12,26 @@ words in all lowercase.
 
 
 // Thoughts
+/*
+We will probably have to use regex for this problem.
+We will check check the str against our regex, using `match()`.
+If the word begins with a vowel, the above variable will be null and we can just `concat('way')`
+If variable is not null, we will use `replace()` to remove the first consonant or cluster
+then concat them to to the str, then concat 'ay'
+Return str
+
+*/
 
 
 function translatePigLatin(str) {
+  const regex = /^[^aeiou]+/g;
+  const consonants = str.match(regex);
+  if (consonants == null) {
+    str = str.concat('way');
+  }
+  else {
+    str = str.replace(regex, '').concat(consonants).concat('ay');
+  }
   return str;
 }
 
