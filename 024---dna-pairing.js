@@ -45,7 +45,31 @@ function pairElement(str) {
   return pairs;
 }
 
+function pairElement(str) {
+  let pairs = [];
+  const strArr = str.split("");
+  strArr.map(elem => {
+    switch (elem) {
+    case 'C':
+      pairs.push(['C', 'G']);
+      break;
+    case 'G':
+      pairs.push(['G', 'C']);
+      break;
+    case 'A':
+      pairs.push(['A', 'T']);
+      break;      
+    case 'T':
+      pairs.push(['T', 'A']);
+      break;
+    }
+  })
+  return pairs;
+}  
+
 pairElement("GCG");
+
+
 
 // TESTS
 // pairElement("ATCGA") should return [["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]].
