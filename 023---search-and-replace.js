@@ -15,9 +15,27 @@ replacing it. For example if you mean to replace the word "Book" with the word
 
 
 // Thoughts
+/*
+We have three inputs. A string (sentence), string, and string
+We have to replace one string within the sentence with the 3rd argument
+We have to check on the case (lower or upper) and ensure it matches
+We will use regex again. We will test `before` to see if begins with a capital letter
+If it returns true, we will change after to have a capital as well
+If not, we will leave that as it is
+We split the `str` setence into an array, search for the `before` word using `splice()`
+We find the index, remove the word, and insert `after` value
+Join back array and return the value
+*/
 
 function myReplace(str, before, after) {
-  return str;
+  const strSplit = str.split(' ');
+
+  if (/[A-Z]/.test(before)) {
+    after = after.charAt(0).toUpperCase() + after.slice(1);
+  } 
+  
+  strSplit.splice(strSplit.indexOf(before), 1, after);
+  return strSplit.join(' ');
 }
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
