@@ -15,11 +15,24 @@ Check the assertion tests for examples.
 
 // THOUGHTS
 /*
-
+Our input is a 2d array, we have to return an array
+We have to use the arguments object to access all the sub arrays
+Once we have that, we can just loop through them and check if they are in the new array
+We can check using `indexOf()`. If it isn't in there yet, we can `push()`
+Then return the new array
 */
 
 function uniteUnique(arr) {
-  return arr;
+  const arrArgs = [...arguments];
+  const union = [];
+  for (let i = 0; i < arrArgs.length; i++) {
+    for (let j = 0; j < arrArgs[i].length; j++) {
+      if (union.indexOf(arrArgs[i][j]) == -1) {
+        union.push(arrArgs[i][j])
+      }
+    }
+  }
+  return union
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
