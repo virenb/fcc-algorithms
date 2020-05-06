@@ -17,11 +17,32 @@ are grouped into one encapsulating array.
 
 // Thoughts
 /*
-
+We have a string as an input
+We have to output a 2d array so we will definitely do some splitting on the `str` input
+Reading about the base pairs, if we come across a certain character, we will have to 
+pair it with its partner into an array
+We can then push them into an array
+We can do if else statements or maybe a switch
+Make sure to return the array which all the sub arrays are pushed into
 */
 
 function pairElement(str) {
-  return str;
+  let pairs = [];
+  str.split('').map(elem => {
+    if (elem === 'G') {
+      pairs.push(['G', 'C'])
+    }
+    else if (elem === 'C') {
+      pairs.push(['C', 'G'])
+    }
+    else if (elem === 'A') {
+      pairs.push(['A', 'T'])
+    }
+    else if (elem === 'T') {
+      pairs.push(['T', 'A'])
+    }
+  })
+  return pairs;
 }
 
 pairElement("GCG");
