@@ -6,12 +6,43 @@ in a string to their corresponding HTML entities.
 
 
 // THOUGHTS
+/*
+First thought of maybe making an object and checking the keys, then would replace would values
+We will split our input string into an array
+We will loop through it checking each index to see if its equal to one of the special characters
+We will replace the index
+Join the array back into a string
+Return the string
+*/
 
 function convertHTML(str) {
-  return str;
+  const strSplit = str.split('');
+  for (let i = 0; i < strSplit.length; i++) {
+    switch(strSplit[i]) {
+      case "&":
+        strSplit[i] = "&amp;";
+        break;
+      case "<":
+        strSplit[i] = "&lt;";
+        break;           
+      case ">":
+        strSplit[i] = "&gt;";
+        break;
+      case "'":
+        strSplit[i] = "&apos;"
+        break;
+      case '"':
+        strSplit[i] = "&quot;"
+        break;       
+    }
+  }
+  
+  return strSplit.join('');
 }
 
 convertHTML("Dolce & Gabbana");
+
+// Can be solved with if / elses
 
 // TESTS
 // convertHTML("Dolce & Gabbana") should return "Dolce &amp; Gabbana".
