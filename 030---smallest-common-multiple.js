@@ -15,8 +15,33 @@ here would be 6.
 
 
 // THOUGHTS
+/*
+A few different ways, can look up LCM or GCD math formulas
+The input is an 2 index array. We can run sort() to make the biggest number first
+`arr.sort((a,b) => b - a)`
+We can create a variable, set to highest value
+We can then do some kind of loop through the array to check the divisibility of the multiple
+Recursive in a way, if multiple modulus is not equal to zero, add high to multiple
+Reset i to low
+Return multiple
+*/
+
 function smallestCommons(arr) {
-  return arr;
+  arr = arr.sort((a,b) => b - a);
+  let [high, low] = arr;
+  let multiple = high;
+
+  for (let i = low; i < high; i++) {
+    if (multiple % i !== 0) {
+      multiple += high;
+      i = low - 1;
+    }
+    else if (i == high) {
+      return multiple;
+    }
+
+    return multiple;
+  }
 }
 
 smallestCommons([1,5]);
