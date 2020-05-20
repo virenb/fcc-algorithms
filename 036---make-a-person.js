@@ -18,13 +18,49 @@ must be the only available means of interacting with the object.
 
 
 // THOUGHTS
+/*
+  We have to complete this object constructor. They have defined what methods they want.
+  We can start by listing them out within the object constructor
+  Our input, 'firstAndLast' is a string of a first and last name
+  We can split(' ') the names into their own variables
+  getFirst/Last/Full will just return the variables
+  When it comes to the set methods, they take in an input of a string
+  We can set those inputs to our current variables and return them
+*/
 
 var Person = function(firstAndLast) {
   // Complete the method below and implement the others similarly
+
+  let [firstName, lastName] = firstAndLast.split(' ');
+
+  this.getFirstName = function() {
+    return firstName;
+  };
+
+  this.getLastName = function() {
+    return lastName;
+  };
+
   this.getFullName = function() {
     return "";
   };
-  return firstAndLast;
+  
+  this.setFirstName = function(first) {
+    firstName = first;
+    return firstName;
+  };
+
+  this.setLastName = function(last) {
+    lastName = last;
+    return lastName;
+  }
+
+  this.setFullName = function(firstAndLast) {
+    firstName = firstAndLast.split(' ')[0];
+    lastName = firstAndLast.split(' ')[1];
+    return `${firstName} ${lastName}`;
+  }
+  
 };
 
 var bob = new Person('Bob Ross');
