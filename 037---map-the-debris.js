@@ -16,11 +16,29 @@ The radius of the earth is 6367.4447 kilometers, and the GM value of earth is
 
 
 // THOUGHTS
+/*
+  Need to find the formula for orbital periods, make sure the output is in seconds
+  Most probably will get a decimal, we need to round up to the next whole number
+  Will have to utilize Math object, as they have built in properties which would be useful
+  Math.round() to round
+  Need to figure out how to calculate
+  Remove avgAlt and add in orbitalPeriod
+  From a lot of searching, the proper formula is T = 2*pi*sqrt(r^3/GM); r = earthRadius+avgAlt
+  Can use `Math.PI` and also `Math.sqrt()`
+  Can map through `arr`, calculating the formula, deleting `avgAlt` then adding the new
+  key-value pair
+  Make sure to return arr!
+*/
 
 
 function orbitalPeriod(arr) {
   var GM = 398600.4418;
   var earthRadius = 6367.4447;
+  arr.map(obj => {
+    let oP = Math.round(2 * Math.PI * Math.sqrt(Math.pow(earthRadius + obj.avgAlt, 3) / GM));
+    delete obj.avgAlt;
+    obj.orbitalPeriod = oP;
+  })
   return arr;
 }
 
