@@ -13,7 +13,6 @@ replacing it. For example if you mean to replace the word "Book" with the word
 
 */
 
-
 // Thoughts
 /*
 We have three inputs. A string (sentence), string, and string
@@ -30,15 +29,15 @@ Join back array and return the value
 function myReplace(str, before, after) {
   const strSplit = str.split(' ');
 
-  if (/[A-Z]/.test(before)) {
+  if (/^[A-Z]/.test(before)) {
     after = after.charAt(0).toUpperCase() + after.slice(1);
-  } 
-  
+  }
+
   strSplit.splice(strSplit.indexOf(before), 1, after);
   return strSplit.join(' ');
 }
 
-myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+myReplace('A quick brown fox jumped over the lazy dog', 'jumped', 'leaped');
 
 // TESTS
 // myReplace("Let us go to the store", "store", "mall") should return "Let us go to the mall".
