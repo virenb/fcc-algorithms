@@ -5,7 +5,6 @@ Find the missing letter in the passed letter range and return it.
 If all letters are present in the range, return undefined.
 */
 
-
 // Thoughts
 /*
 
@@ -27,16 +26,14 @@ function fearNotLetter(str) {
   let strArray = str.split('');
   let idx = alphabet.indexOf(strArray[0]);
   let strLen = strArray.length;
-  let slicedAlphabet = alphabet.splice(idx, strLen);
+  let splicedAlphabet = alphabet.splice(idx, strLen);
 
-  for (let i = 0; i < slicedAlphabet.length; i++) {
-    if (!strArray.includes(slicedAlphabet[i])) 
-      return slicedAlphabet[i]
+  for (let i = 0; i < splicedAlphabet.length; i++) {
+    if (!strArray.includes(splicedAlphabet[i])) return splicedAlphabet[i];
   }
 }
 
-fearNotLetter("abce");
-
+fearNotLetter('abce');
 
 // Tests
 // fearNotLetter("abce") should return "d".
