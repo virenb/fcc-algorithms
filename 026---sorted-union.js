@@ -12,7 +12,6 @@ array should not be sorted in numerical order.
 Check the assertion tests for examples.
 */
 
-
 // THOUGHTS
 /*
 Our input is a 2d array, we have to return an array
@@ -28,15 +27,14 @@ function uniteUnique(arr) {
   for (let i = 0; i < arrArgs.length; i++) {
     for (let j = 0; j < arrArgs[i].length; j++) {
       if (union.indexOf(arrArgs[i][j]) == -1) {
-        union.push(arrArgs[i][j])
+        union.push(arrArgs[i][j]);
       }
     }
   }
-  return union
+  return union;
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
-
 
 // TESTS
 // uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) should return [1, 3, 2, 5, 4].

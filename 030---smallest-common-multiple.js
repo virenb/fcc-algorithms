@@ -13,7 +13,6 @@ here would be 6.
 
 */
 
-
 // THOUGHTS
 /*
 A few different ways, can look up LCM or GCD math formulas
@@ -27,7 +26,7 @@ Return multiple
 */
 
 function smallestCommons(arr) {
-  arr = arr.sort((a,b) => b - a);
+  arr = arr.sort((a, b) => b - a);
   let [high, low] = arr;
   let multiple = high;
 
@@ -35,17 +34,14 @@ function smallestCommons(arr) {
     if (multiple % i !== 0) {
       multiple += high;
       i = low - 1;
-    }
-    else if (i == high) {
+    } else if (i == high) {
       return multiple;
     }
-
-    return multiple;
   }
+  return multiple;
 }
 
-smallestCommons([1,5]);
-
+smallestCommons([1, 5]);
 
 // TESTS
 // smallestCommons([1, 5]) should return a number.
