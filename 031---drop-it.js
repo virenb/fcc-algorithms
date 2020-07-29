@@ -9,7 +9,6 @@ arr should be returned as an empty array.
 
 */
 
-
 // THOUGHTS
 /*
 Two arguments, an array and a function
@@ -25,19 +24,21 @@ We check the first arr[0], if its false then we shift() and remove that
 This repeats until we hit a true value
 */
 
-
 function dropElements(arr, func) {
   const arrLength = arr.length;
   for (let i = 0; i < arrLength; i++) {
     if (!func(arr[0])) {
       arr.shift();
+    } else {
+      return arr;
     }
   }
   return arr;
 }
 
-dropElements([1, 2, 3], function(n) {return n < 3; });
-
+dropElements([1, 2, 3], function (n) {
+  return n < 3;
+});
 
 // TESTS
 // dropElements([1, 2, 3, 4], function(n) {return n >= 3;}) should return [3, 4].
