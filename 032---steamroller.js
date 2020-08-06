@@ -4,7 +4,6 @@ Flatten a nested array. You must account for varying levels of nesting.
 
 */
 
-
 // THOUGHTS
 /*
 
@@ -23,20 +22,18 @@ Return the new flat array
 function steamrollArray(arr) {
   let flattened = [];
 
-  arr.map(val => {
+  arr.map((val) => {
     if (!Array.isArray(val)) {
       flattened.push(val);
-    }
-    else {
+    } else {
       flattened.push(...steamrollArray(val));
     }
-  })
+  });
 
   return flattened;
 }
 
 steamrollArray([1, [2], [3, [[4]]]]);
-
 
 // TESTS
 // steamrollArray([[["a"]], [["b"]]]) should return ["a", "b"].
